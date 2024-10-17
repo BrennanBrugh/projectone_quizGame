@@ -16,11 +16,21 @@ public class projectOne {
         String playerName = scanner.nextLine();
 
         // Welcome message
-        System.out.println("Welcome to the Game, " + playerName + "...");
+        System.out.println("Welcome, " + playerName + "... you are about to be tested.");
+        System.out.println("Before you, " + playerName + " are a series of questions and riddles.");
+        System.out.println("Answer the following questions correctly and you may continue on your way.");
+        System.out.println("Answer too many wrong and you have failed.");
+
+        //Further prompt to continue
+        System.out.print("Are you ready? Press Enter to proceed... ");
+        scanner.nextLine();
+
+        //Tutorial Prompt
+        System.out.println("Let us begin with some basics. Answer the following questions.");
 
         // Creating a Quiz instance and starting the quiz
         Quiz quiz = new Quiz(scanner); // Pass scanner to the Quiz constructor
-        quiz.startQuiz();
+        quiz.tutorialQuiz();
 
         // Score display
         System.out.println("Thanks for playing, " + playerName + ".");
@@ -30,6 +40,10 @@ public class projectOne {
     }
 }
 
+/**
+ * This method is creating the process of the quiz logic
+ * The user can input the ABCD and will get a response of correct or not.
+ */
 // Creating Quiz Logic
 class Quiz {
     private int score;
@@ -61,7 +75,7 @@ class Quiz {
     }
 
     // Method to start the quiz
-    public void startQuiz() {
+    public void tutorialQuiz() {
         for (int i = 0; i < questions.length; i++) {
             System.out.println(questions[i]); // Displays questions
             for (String option : options[i]) {
